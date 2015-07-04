@@ -4,11 +4,17 @@ const assert = require('assert')
 module.exports = each
 
 // apply a function to all values
-// (fn, obj?) -> [any]|any
+// should only be used for side effects
+// (fn, obj?) -> prom
 function each (fn, ctx) {
   assert.equal(typeof fn, 'function')
-  return function (val) {
-    val = Array.isArray(val) ? val : [val]
-    return Promise.resolve(val.forEach(fn, ctx))
+  return function (arr) {
+    arr = Array.isArray(arr) ? arr : [arr]
+
+    const res = arr.reduce(function (prev, curr) {
+      return prev.then(fn(curr))
+    }, Promise.resolve())
+
+    return res.then(function () {})
   }
 }
