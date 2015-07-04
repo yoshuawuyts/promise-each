@@ -5,6 +5,7 @@
 [![Downloads][downloads-image]][downloads-url]
 
 Call a function [for each][mdn] value in an array and return a [Promise][promise].
+Should only be used for side effects.
 
 ## Installation
 ```bash
