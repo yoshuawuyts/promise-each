@@ -16,7 +16,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "native-or-bluebird": "^1.1.2"
+    "any-promise": "^0.1.0"
   },
   "devDependencies": {
     "bluebird": "^2.8.2",
