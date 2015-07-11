@@ -1,4 +1,4 @@
-const Promise = require('native-or-bluebird')
+const Promise = require('any-promise')
 const test = require('tape')
 const each = require('./')
 
