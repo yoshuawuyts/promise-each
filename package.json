@@ -1,6 +1,6 @@
 {
   "name": "promise-each",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Call a function for each value in an array and return a Promise",
   "main": "index.js",
   "scripts": {
