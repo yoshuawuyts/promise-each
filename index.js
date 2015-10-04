@@ -11,8 +11,8 @@ function each (fn, ctx) {
   return function (arr) {
     arr = Array.isArray(arr) ? arr : [arr]
 
-    const res = arr.reduce(function (prev, curr) {
-      return prev.then(fn(curr))
+    const res = arr.reduce(function (prev, curr, i) {
+      return prev.then(fn(curr, i))
     }, Promise.resolve())
 
     return res.then(function () {})

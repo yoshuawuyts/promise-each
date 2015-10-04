@@ -8,21 +8,24 @@ test('promise-each should assert input types', function (t) {
 })
 
 test('should call a fn for each value in arr', function (t) {
-  t.plan(1)
+  t.plan(2)
 
-  var arr = []
+  var indexes = []
+  var values = []
 
   Promise.resolve([1, 2, 3])
     .then(each(eachFn))
     .then(checkFn)
     .catch(handleErr)
 
-  function eachFn (val) {
-    return arr.push(val)
+  function eachFn (val, i) {
+    indexes.push(i)
+    return values.push(val)
   }
 
   function checkFn (val) {
-    t.deepEqual([1, 2, 3], arr)
+    t.deepEqual([0, 1, 2], indexes)
+    t.deepEqual([1, 2, 3], values)
   }
 
   function handleErr () {
