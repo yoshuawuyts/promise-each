@@ -60,9 +60,9 @@ test('should not return values', function (t) {
 test('should wait for promises to be resolved', function (t) {
   t.plan(1)
 
-  var n = 0
+  var arr = []
 
-  Promise.resolve([late, check])
+  Promise.resolve([late, early, check])
     .then(each(eachFn))
 
   function eachFn (fn) {
@@ -70,20 +70,20 @@ test('should wait for promises to be resolved', function (t) {
     return val
   }
 
+  function early () {
+    arr.push('early')
+  }
+
   function late () {
-    return function () {
-      return new Promise(function (fullfil) {
-        setTimeout(function () {
-          n++
-          fullfil()
-        }, 50)
-      })
-    }
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        arr.push('late')
+        resolve()
+      }, 50)
+    })
   }
 
   function check () {
-    return function () {
-      t.equal(n, 1)
-    }
+    t.deepEqual(arr, ['late', 'early'])
   }
 })
