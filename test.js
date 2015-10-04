@@ -24,8 +24,8 @@ test('should call a fn for each value in arr', function (t) {
   }
 
   function checkFn (val) {
-    t.deepEqual([0, 1, 2], indexes)
-    t.deepEqual([1, 2, 3], values)
+    t.deepEqual(indexes, [0, 1, 2])
+    t.deepEqual(values, [1, 2, 3])
   }
 
   function handleErr () {
