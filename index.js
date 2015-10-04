@@ -12,7 +12,7 @@ function each (fn) {
     arr = Array.isArray(arr) ? arr : [arr]
 
     return arr.reduce(function (prev, curr, i) {
-      return prev.then(function () { return fn(curr, i) })
+      return prev.then(function () { return fn(curr, i, arr.length) })
     }, Promise.resolve()).then(function () {})
   }
 }
