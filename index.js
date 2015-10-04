@@ -5,8 +5,8 @@ module.exports = each
 
 // apply a function to all values
 // should only be used for side effects
-// (fn, obj?) -> prom
-function each (fn, ctx) {
+// (fn) -> prom
+function each (fn) {
   assert.equal(typeof fn, 'function')
   return function (arr) {
     arr = Array.isArray(arr) ? arr : [arr]
