@@ -1,6 +1,6 @@
 {
   "name": "promise-each",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Call a function for each value in an array and return a Promise",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "any-promise": "^0.1.0"
+    "any-promise": "^0.1.0",
+    "args-expect": "~0.2.1"
   },
   "devDependencies": {
     "bluebird": "^2.8.2",
