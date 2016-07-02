@@ -13,6 +13,6 @@ function each (fn) {
 
     return arr.reduce(function (prev, curr, i) {
       return prev.then(function () { return fn(curr, i, arr.length) })
-    }, Promise.resolve()).then(function () {})
+    }, Promise.resolve()).then(function () { return arr })
   }
 }
