@@ -48,12 +48,14 @@ test('should call n when n=1', function (t) {
   }
 })
 
-test('should not return values', function (t) {
+test('should return the original array unmodified', function (t) {
   t.plan(1)
 
-  Promise.resolve([1, 2, 3])
+  const arr = [1, 2, 3]
+
+  Promise.resolve(arr)
     .then(each(eachFn))
-    .then(function (arg) {t.notOk(arg, 'no arguments')})
+    .then(function (arg) {t.deepEqual(arg, arr)})
 
   function eachFn () {
     return arguments
