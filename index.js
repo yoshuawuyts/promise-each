@@ -1,5 +1,5 @@
 const Promise = require('any-promise')
-const assert = require('assert')
+const expect = require('args-expect')
 
 module.exports = each
 
@@ -7,7 +7,7 @@ module.exports = each
 // should only be used for side effects
 // (fn) -> prom
 function each (fn) {
-  assert.equal(typeof fn, 'function')
+  expect(fn).isFunction()
   return function (arr) {
     arr = Array.isArray(arr) ? arr : [arr]
 
